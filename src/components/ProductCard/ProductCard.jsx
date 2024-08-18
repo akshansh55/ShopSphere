@@ -2,16 +2,13 @@ import { useContext, useState } from 'react';
 import './ProductCard.css';
 import  {CartContext}  from '../../Context/CartContext';
 function ProductCard({product}){
-    const {cart, handleAddToCart}   =  useContext(CartContext);
-    
-        
-    
+    const {cart, handleAddToCart, setCart}   =  useContext(CartContext);
     const numberFormat = (value) =>
         new Intl.NumberFormat('en-IN', {
           style: 'currency',
           currency: `${product.price.currency}`
         }).format(value);
-        console.log(cart);
+        
     return(
         <div className='product-card'>
             <div className="product-img">
@@ -27,7 +24,7 @@ function ProductCard({product}){
                 <div>
                     {numberFormat(product.price.value)}
                 </div>
-                <button onClick={(product)=>{handleAddToCart(product)}}>Add To Cart</button>
+                <button onClick={()=>{handleAddToCart(product)}}>Add To Cart</button>
             </div>     
         </div>
        

@@ -5,7 +5,7 @@ import './Products.css';
 
 function Products(){
         const [products,setProducts] = useState([]);
-
+        
         useEffect(()=>{
             fetch("https://602fc537a1e9d20017af105e.mockapi.io/api/v1/products").then((data)=>{
                 return data.json();

@@ -1,17 +1,17 @@
 import { useContext } from "react";
 import ProductCard from "../ProductCard";
 import { CartContext } from "../../Context/CartContext";
+import CartCard from "../CartCard";
+import './Cart.css';
 
 function Cart(){
-
-    
-  
-    const {cart} = useContext(CartContext);
+    const {cart,handleRemoveFromCart } = useContext(CartContext);
     
     return(
-        <div>
+        <div className="cart-item">
             {cart.map((cartitem)=>{
-                <ProductCard />
+               
+               return <CartCard cartitem ={cartitem} key={cartitem.id}/>
             })}
         </div>
         
