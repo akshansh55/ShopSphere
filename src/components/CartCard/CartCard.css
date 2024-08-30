@@ -1,9 +1,27 @@
 .cart-item{
-    margin: 3px;
+    padding: 30px;
+    width: 100%;
+  
+    margin-right: 100px;
+    
 }
 .cart-item-image img{
-    height: 300px;
-    width: 300px;
-    
+    height: 200px;
+    width: 200px;
    
+    border-right: 1px solid rgb(19, 18, 18);
+
+}
+.cartitem-delete{
+    background: none;
+    border: none;
+}
+
+.cartitem-delete:hover::after{
+    content: "Delete";
+    background-color: rgb(87, 82, 82);
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    
 }

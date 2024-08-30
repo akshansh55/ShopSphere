@@ -1,12 +1,17 @@
-
-import { useContext, useState } from "react";
+import SubTotal from "../SubTotal";
+import { useContext, useState, useRef } from "react";
 import { CartContext } from "../../Context/CartContext";
 import './CartCard.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTrash} from '@fortawesome/free-solid-svg-icons';
 function CartCard({cartitem}){
    
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(1);
 
-    const {handleRemoveFromCart, increaseQuantity, decreaseQuantity} = useContext(CartContext);
+    const {cart, handleRemoveFromCart, increaseQuantity, decreaseQuantity} = useContext(CartContext);
+    
+           
+      
         return(
             <div className="cart-item">
                 <div className="cart-item-image">
@@ -22,18 +27,19 @@ function CartCard({cartitem}){
                     {quantity}
                 </div>
                 <div>
-                    <button onClick={()=>{decreaseQuantity(quantity,cartitem,setQuantity)}}>-</button>
+                    <button onClick={()=>{if(quantity>1){decreaseQuantity(quantity,cartitem,setQuantity)}}}>-</button>
                 </div>
                 <div  className="cartitem-price">
                     {cartitem.price.value}
                 </div>
                 <div  className="cartitem-button">
-                    <button  className="cartitem-delete" onClick={()=>{handleRemoveFromCart(cartitem)}}>Delete</button>
+                    <button  className="cartitem-delete" onClick={()=>{handleRemoveFromCart(cartitem)}}><FontAwesomeIcon icon={faTrash} /></button>
                 </div>
 
                 <div  className="cartitem-total value">
                     {cartitem.price.value*quantity}
                 </div>
+                
             </div>
         )
     }

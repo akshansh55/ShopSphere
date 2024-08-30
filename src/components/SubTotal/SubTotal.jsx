@@ -1,7 +1,7 @@
 import Cart from "../Cart";
 import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
-function SubTotal(){
+function SubTotal({quantity,cartitem}){
 
     const {cart} = useContext(CartContext);
 
@@ -14,8 +14,10 @@ function SubTotal(){
     }
     return(
         <div>
-            <h3>SubTotal</h3>
+            <h3>SubTotal:-</h3>
             <div>{totalValue(cart,cartitem,quantity)}</div>
         </div>
     )
 }
+
+export default SubTotal;
