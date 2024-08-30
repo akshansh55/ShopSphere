@@ -10,49 +10,49 @@ import { CartContext } from './Context/CartContext';
 
 
 
+
 function App() {
-  
-  const [cart, setCart] = useState([]);
- 
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('products')));
   console.log(cart);
-  
-  function handleAddToCart(productObj){
+    function handleAddToCart(productObj){
+      if(!cart.includes(productObj)){
         const updatedCart = [...cart, productObj]
         setCart(updatedCart);
         localStorage.setItem('products',JSON.stringify(updatedCart));
-  }
-
-  function handleRemoveFromCart(productObj){
-    let filteredProducts = cart.filter((product)=>{
-      return product.id !== productObj.id
-    });
-    setCart(filteredProducts); 
-    localStorage.setItem('products', JSON.stringify(filteredProducts));
-  }
-  function increaseQuantity(productObj,quantity,setQuantity){
-    
-    setQuantity((quantity)=>quantity+1);
-  }
-  function decreaseQuantity(productObj,quantity,setQuantity){
-    if(quantity===-1) return;
-    setQuantity((quantity)=>quantity-1);
-  }
-
+      }
+          
+    }
+    function handleRemoveFromCart(productObj){
+      let filteredProducts = cart.filter((product)=>{
+        return product.id !== productObj.id
+      });
+      setCart(filteredProducts); 
+      localStorage.setItem('products', JSON.stringify(filteredProducts));
+    }
+    function increaseQuantity(productObj,quantity,setQuantity){
+      
+      setQuantity((quantity)=>quantity+1);
+    }
+    function decreaseQuantity(productObj,quantity,setQuantity){
+        
+        setQuantity((quantity)=>quantity-1);
+      }
   return (
     <div className="App">
         <BrowserRouter>
-         <CartContext.Provider value={{cart, handleAddToCart , handleRemoveFromCart, setCart, increaseQuantity,decreaseQuantity}}> 
-         <NavigationBar/>
+         <CartContext.Provider value={{cart, handleAddToCart , handleRemoveFromCart, setCart, increaseQuantity, decreaseQuantity}}> 
+         <NavigationBar/>        
           <Switch>
               <Route path="/" component={ProductPage} exact={true}/>
               <Route path="/cart" component={CartPage} exact={true}/>
               <Route  component={NotFoundPage}/>
           </Switch>  
-         </CartContext.Provider>
-                  
+          <div className='footer'>
+            © 2019 ShopSphere All rights reserved.
+          </div>
+         </CartContext.Provider>                 
         </BrowserRouter>
     </div>
   );
 }
-
 export default App;
