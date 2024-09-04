@@ -1,8 +1,15 @@
+
+
 import { createContext } from "react";
 
  export const CartContext = createContext({
     cart:[],
+    setCart:()=>{},
     handleAddToCart:()=>{},
-    handleRemoveFromCart:()=>{}
+    handleRemoveFromCart:()=>{},
+    decreaseQuantity:()=>{},
+    increaseQuantity:()=>{},
+    
+
 });
 

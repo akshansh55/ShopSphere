@@ -13,3 +13,15 @@
     overflow-x: hidden;
     
 }
+.empty-cart-parent{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.empty-cart{
+    height: 65vh;
+    width: 100vw;
+    background-color: rgb(207, 197, 197);
+    
+}

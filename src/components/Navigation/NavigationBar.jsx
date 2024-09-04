@@ -1,11 +1,12 @@
 import Cartlogo from '../../assets/Cartlogo.png';
 import './NavigationBar.css';
-import { CartContext } from '../../Context/CartContext';
+
 import { Link } from "react-router-dom";
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 
 function NavigationBar(){
-    const {cart} = useContext(CartContext);
+    // const {cart} = useContext(CartContext);
+    const cart = useSelector(state=> {return state.cart});
     return(
         
                 <div className="navbar">

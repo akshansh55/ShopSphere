@@ -1,7 +1,21 @@
 .App {
   text-align: center;
-  margin-bottom: 100px;
+  background-color: rgb(231, 232, 234);
+  
 }
+
+.footer{
+  display: flex;
+  height: 100px;
+  background-color: black;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+
 
 .App-logo {
   height: 40vmin;

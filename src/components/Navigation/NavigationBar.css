@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: nowrap;
 
-    background-color:teal;
+    background-color:rgb(241, 246, 246);
     align-items: center;
     height: 70px;
     margin-bottom: 10px;
@@ -14,8 +14,8 @@
 
 .navbar img{
     width: 80px;
-    height: 80px;
-    padding: 10px;
+    height: 73px;
+    
    
 }
 
